@@ -1,0 +1,6 @@
+{
+  "name": "Jovanović Winery - Svrljig",
+  "description": "Luxury dark-mode landing and multi-page experience for Vinarija Jovanović - Premium Rosé and Red Wines from Svrljig District, Serbia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
