@@ -3,7 +3,7 @@ import roseBottleImg from '../assets/images/jovanovic_rose_bottle_1785589247867.
 import redBottleImg from '../assets/images/jovanovic_red_bottle_1785589260995.jpg';
 import terroirImg from '../assets/images/svrljig_terroir_1785589272352.jpg';
 
-export { heroBgImg, roseBottleImg, redBottleImg, terroirImg };
+export { heroBgImg };
 
 export const WINES_DATA = [
   {
