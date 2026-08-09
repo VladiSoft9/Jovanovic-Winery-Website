@@ -23,12 +23,12 @@ export default function Hero({ lang, onOpenReservation, onExploreWines }) {
       hls.loadSource(hlsUrl);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play().catch(() => {});
+        video.play().catch(() => { });
       });
       return () => hls.destroy();
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       video.src = hlsUrl;
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     }
   }, []);
 
@@ -96,7 +96,8 @@ export default function Hero({ lang, onOpenReservation, onExploreWines }) {
 
         {/* Dynamic Role Line */}
         <p className="blur-in text-lg md:text-2xl text-[#a3a3a3] font-light mb-6 tracking-wide">
-          {lang === 'sr' ? 'Autentična ' : 'Authentic '}
+          {lang === 'sr' ? roleIndex === 1 ? 'Autentičan ' : 'Autentična '
+            : 'Authentic '}
           <span
             key={roleIndex}
             className="font-display italic text-[#dc2626] font-normal animate-role-fade-in inline-block border-b border-[#dc2626]/30 pb-0.5 mx-1"

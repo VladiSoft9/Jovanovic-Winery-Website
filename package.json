@@ -1,5 +1,6 @@
 {
   "name": "react-example",
+  "homepage": "https://VladiSoft9.github.io/Jovanovic-Winery-Website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,22 +8,25 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rm -rf dist server.js"
+    "clean": "rm -rf dist server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "vite": "^6.2.3",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
-    "react-dom": "^19.0.1",
-    "react": "^19.0.1",
     "gsap": "^3.15.0",
     "hls.js": "^1.6.16",
     "lucide-react": "^0.546.0",
-    "motion": "^12.23.24"
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^6.2.3"
   },
   "devDependencies": {
-    "vite": "^6.2.3",
     "esbuild": "^0.25.0",
-    "tailwindcss": "^4.1.14"
+    "gh-pages": "^6.3.0",
+    "tailwindcss": "^4.1.14",
+    "vite": "^6.2.3"
   }
 }
