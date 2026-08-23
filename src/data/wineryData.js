@@ -285,7 +285,7 @@ export const DICTIONARY = {
     newsletterSub: 'Prijavite se za ekskluzivne najave novih berbi, arhivskih izdanja i privatnih degustacija.',
     newsletterPlaceholder: 'Vaša email adresa...',
     newsletterBtn: 'Pridruži se',
-    newsletterSuccess: 'Hvala! Uspešno ste na našoj lansirnoj vinskoj listi.',
+    newsletterSuccess: 'Hvala! Od sada ste prisutni na našoj ekskluzivnoj vinskoj listi.',
     footerHeadline: 'Tradicionalna vina koja pričaju priču o rodu, zemlji i porodičnoj strasti.',
     footerColCompany: 'Vinarija',
     footerColSocials: 'Društvene Mreže',

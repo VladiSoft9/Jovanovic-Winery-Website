@@ -75,20 +75,18 @@ export default function ContactSection({ lang }) {
   return (
     <footer id="contact" className="bg-[#0a0a0a] pt-16 md:pt-24 pb-8 border-t border-[#1a1a1a] relative overflow-hidden">
       {/* GSAP Continuous Marquee Band */}
-      <div className="w-full overflow-hidden whitespace-nowrap border-y border-white/10 bg-[#141414]/40 backdrop-blur-md py-5 mb-16 select-none shadow-inner">
+      <div className="overflow-hidden border-y border-white/10 bg-[#141414]/40 backdrop-blur-md py-5 mb-16 select-none">
         <div ref={marqueeRef} className="inline-flex whitespace-nowrap">
-          <span className="font-display italic text-lg md:text-2xl text-[#f5f5f5]/90 font-normal tracking-wide pr-4">
+          <span className="font-display italic text-lg md:text-2xl text-[#f5f5f5]/90 font-bold tracking-wide pr-4">
             {marqueeBlock}
           </span>
-          <span className="font-display italic text-lg md:text-2xl text-[#f5f5f5]/90 font-normal tracking-wide pr-4">
+          <span className="font-display italic text-lg md:text-2xl text-[#f5f5f5]/90 font-bold tracking-wide pr-4">
             {marqueeBlock}
           </span>
         </div>
       </div>
 
       <div className="max-w-[1760px] 2xl:max-w-[1920px] mx-auto px-6 md:px-10 lg:px-16 xl:px-20 relative z-10">
-        {/* Ambient background glow */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#991b1b]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
 
         {/* Main Grid: Info + Reservation Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-20 items-start">
@@ -212,7 +210,7 @@ export default function ContactSection({ lang }) {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder={lang === 'sr' ? 'npr. Marko Marković' : 'e.g. Alexander Smith'}
-                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none focus-visible:ring-1 focus-visible:ring-[#dc2626]"
+                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none"
                     />
                   </div>
                   <div>
@@ -226,7 +224,7 @@ export default function ContactSection({ lang }) {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder={lang === 'sr' ? 'npr. marko@example.rs' : 'e.g. alexander@example.com'}
-                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none focus-visible:ring-1 focus-visible:ring-[#dc2626]"
+                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none"
                     />
                   </div>
                 </div>
@@ -242,7 +240,7 @@ export default function ContactSection({ lang }) {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+381 63 123 456"
-                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none focus-visible:ring-1 focus-visible:ring-[#dc2626]"
+                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none"
                     />
                   </div>
 
@@ -256,7 +254,7 @@ export default function ContactSection({ lang }) {
                       required
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none focus-visible:ring-1 focus-visible:ring-[#dc2626] [color-scheme:dark]"
+                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none [color-scheme:dark]"
                     />
                   </div>
 
@@ -268,11 +266,12 @@ export default function ContactSection({ lang }) {
                       id="contact-guests"
                       value={formData.guests}
                       onChange={(e) => setFormData({ ...formData, guests: Number(e.target.value) })}
-                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] text-[#f5f5f5] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none cursor-pointer focus-visible:ring-1 focus-visible:ring-[#dc2626]"
+                      className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] text-[#f5f5f5] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none cursor-pointer"
                     >
                       {[2, 3, 4, 5, 6, 8, 10, 15, 20].map((num) => (
                         <option key={num} value={num} className="bg-[#141414] text-[#f5f5f5]">
-                          {num} {lang === 'sr' ? 'Osoba' : 'Guests'}
+                          {num} {lang === 'sr' ? num === 2 || num === 3 || num === 4 ? 'Osobe' : 'Osoba'
+                            : 'Guests'}
                         </option>
                       ))}
                     </select>
@@ -287,7 +286,7 @@ export default function ContactSection({ lang }) {
                     id="contact-preference"
                     value={formData.winePreference}
                     onChange={(e) => setFormData({ ...formData, winePreference: e.target.value })}
-                    className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] text-[#f5f5f5] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none cursor-pointer focus-visible:ring-1 focus-visible:ring-[#dc2626]"
+                    className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] text-[#f5f5f5] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none cursor-pointer"
                   >
                     <option value="rose-and-red" className="bg-[#141414] text-[#f5f5f5]">
                       {lang === 'sr' ? 'Jovanović Rosé & Crveno Reserve (Kompletna Vođena Degustacija)' : 'Jovanović Rosé & Red Reserve (Complete Tasting Flight)'}
@@ -314,7 +313,7 @@ export default function ContactSection({ lang }) {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={lang === 'sr' ? 'Alergije na hranu, posebne želje za hranom ili pitanja o prevozu...' : 'Dietary requirements, special notes or transport requests...'}
-                    className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none resize-none focus-visible:ring-1 focus-visible:ring-[#dc2626]"
+                    className="w-full bg-[#0a0a0a] border border-white/10 hover:border-white/25 focus:border-[#dc2626] focus:bg-[#0f0a0b] focus:shadow-[0_0_20px_rgba(220,38,38,0.2)] text-[#f5f5f5] placeholder-[#525252] rounded-xl px-4 py-3.5 text-xs sm:text-sm transition-all outline-none resize-none"
                   />
                 </div>
 
