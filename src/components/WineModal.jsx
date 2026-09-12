@@ -1,9 +1,13 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { X, Award, Wine, Thermometer, Utensils, Star, CheckCircle, Send } from 'lucide-react';
 
 export default function WineModal({ wine, lang, onClose, onOpenTasting }) {
   const [inquirySent, setInquirySent] = useState(false);
+
+  useEffect(() => {
+    setInquirySent(false);
+  }, [wine?.id]);
 
   if (!wine) return null;
 
@@ -16,14 +20,13 @@ export default function WineModal({ wine, lang, onClose, onOpenTasting }) {
   };
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        onClick={onClose}
-        className="fixed inset-0 z-[10000] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
-      >
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 z-[10000] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+    >
         <motion.div
           initial={{ scale: 0.94, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -165,7 +168,7 @@ export default function WineModal({ wine, lang, onClose, onOpenTasting }) {
               <div className="mt-3 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs text-center flex items-center justify-center gap-2 animate-fade-in">
                 <CheckCircle className="w-4 h-4" />
                 <span>
-                  {lang === 'sr' 
+                  {lang === 'sr'
                     ? `Upit za ${wine.name} je uspešno poslat! Stupićemo u kontakt uskoro.`
                     : `Inquiry for ${wine.name} sent successfully! We will contact you soon.`}
                 </span>
@@ -174,6 +177,5 @@ export default function WineModal({ wine, lang, onClose, onOpenTasting }) {
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
   );
 }

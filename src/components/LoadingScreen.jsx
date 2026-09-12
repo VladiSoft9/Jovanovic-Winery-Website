@@ -1,13 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function LoadingScreen({ onComplete, lang }) {
   const [count, setCount] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
-  const words = lang === 'sr' 
-    ? ['Tradicija', 'Svrljig', 'Strast', 'Jovanović']
-    : ['Heritage', 'Svrljig', 'Passion', 'Jovanović'];
+  const words = useMemo(
+    () =>
+      lang === 'sr'
+        ? ['Tradicija', 'Svrljig', 'Strast', 'Jovanović']
+        : ['Heritage', 'Svrljig', 'Passion', 'Jovanović'],
+    [lang]
+  );
 
   useEffect(() => {
     let startTime = null;
@@ -23,14 +29,14 @@ export default function LoadingScreen({ onComplete, lang }) {
         requestAnimationFrame(step);
       } else {
         setTimeout(() => {
-          onComplete();
+          onCompleteRef.current?.();
         }, 400);
       }
     };
 
     const animFrame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animFrame);
-  }, [onComplete]);
+  }, []);
 
   useEffect(() => {
     const wordInterval = setInterval(() => {

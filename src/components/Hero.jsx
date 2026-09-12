@@ -4,15 +4,15 @@ import Hls from 'hls.js';
 import { DICTIONARY, heroBgImg } from '../data/wineryData.js';
 import { Award, Wine } from 'lucide-react';
 
+const HLS_URL = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
+
 export default function Hero({ lang, onOpenReservation, onExploreWines }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
-  const [roleIndex, setWordIndex] = useState(0);
+  const [roleIndex, setRoleIndex] = useState(0);
 
   const t = DICTIONARY[lang];
   const roles = t.roles;
-
-  const hlsUrl = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
 
   useEffect(() => {
     const video = videoRef.current;
@@ -20,21 +20,21 @@ export default function Hero({ lang, onOpenReservation, onExploreWines }) {
 
     if (Hls.isSupported()) {
       const hls = new Hls({ enableWorker: false });
-      hls.loadSource(hlsUrl);
+      hls.loadSource(HLS_URL);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         video.play().catch(() => { });
       });
       return () => hls.destroy();
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = hlsUrl;
+      video.src = HLS_URL;
       video.play().catch(() => { });
     }
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % roles.length);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 2200);
     return () => clearInterval(interval);
   }, [roles.length]);

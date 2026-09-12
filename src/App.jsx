@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { WINES_DATA, JOURNAL_ENTRIES, GALLERY_ITEMS } from './data/wineryData.js';
+import { scrollToSection } from './utils/scrollToSection.js';
 
 import LoadingScreen from './components/LoadingScreen.jsx';
 import Navbar from './components/Navbar.jsx';
@@ -24,12 +25,6 @@ export default function App() {
     setLang((prev) => (prev === 'sr' ? 'en' : 'sr'));
   };
 
-  const scrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   // ScrollSpy to highlight active section in navbar
   useEffect(() => {

@@ -1,12 +1,11 @@
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { X, Clock, Calendar, BookOpen, Share2 } from 'lucide-react';
 
 export default function HistoryModal({ entry, lang, onClose }) {
   if (!entry) return null;
 
   return (
-    <AnimatePresence>
-      <motion.div
+    <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -77,7 +76,7 @@ export default function HistoryModal({ entry, lang, onClose }) {
               <button
                 onClick={() => {
                   if (navigator.share) {
-                    navigator.share({ title: entry.title, text: entry.summary, url: window.location.href }).catch(() => {});
+                    navigator.share({ title: entry.title, text: entry.summary, url: window.location.href }).catch(() => { });
                   }
                 }}
                 className="inline-flex items-center gap-1 hover:text-[#dc2626] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2626] rounded-md px-1"
@@ -88,6 +87,5 @@ export default function HistoryModal({ entry, lang, onClose }) {
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
   );
 }

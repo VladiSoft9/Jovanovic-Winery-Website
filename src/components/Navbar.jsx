@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { DICTIONARY } from '../data/wineryData.js';
+import { scrollToSection } from '../utils/scrollToSection.js';
 import { Wine, Globe, Menu, X, ChevronRight } from 'lucide-react';
 
 export default function Navbar({ lang, onLanguageToggle, onOpenReservation, activeSection }) {
@@ -18,12 +19,9 @@ export default function Navbar({ lang, onLanguageToggle, onOpenReservation, acti
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
+  const handleNavClick = (id) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToSection(id);
   };
 
   const navItems = [
@@ -67,7 +65,7 @@ export default function Navbar({ lang, onLanguageToggle, onOpenReservation, acti
             return (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className={`text-xs sm:text-sm rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 transition-all duration-500 ease-out cursor-pointer whitespace-nowrap hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2626] ${isActive
                   ? 'text-white bg-white/15 font-medium border border-white/20 shadow-sm'
                   : 'text-[#a3a3a3] hover:text-white hover:bg-white/10 hover:border hover:border-[#dc2626]/30 hover:shadow-[0_4px_15px_rgba(153,27,27,0.2)] border border-transparent'
@@ -128,7 +126,7 @@ export default function Navbar({ lang, onLanguageToggle, onOpenReservation, acti
               return (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   className={`flex items-center justify-between text-left text-sm px-4 py-3 rounded-2xl transition-all duration-300 cursor-pointer ${isActive
                     ? 'bg-white/10 text-white font-medium border border-white/15'
                     : 'text-[#a3a3a3] hover:text-white hover:bg-white/5'
